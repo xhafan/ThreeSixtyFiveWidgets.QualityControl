@@ -1,15 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies
 {
     public class HumiditySensorBrandingStrategy : IBrandingStrategy
     {
-        public string EvaluateBranding(double referenceValue, IEnumerable<double> logValues)
+        public string EvaluateBranding(string referenceValue, IEnumerable<string> logValues)
         {
-            foreach (var logValue in logValues)
+            if (!double.TryParse(referenceValue, out var referenceRelativeHumidity))
             {
-                if (Math.Abs(logValue - referenceValue) > 1)
+                throw new ArgumentException("Reference relative humidity value is invalid.");
+            }
+
+            var logValuesAsDoubles = logValues.Select(logValue =>
+            {
+                if (!double.TryParse(logValue, out var value))
+                {
+                    throw new ArgumentException("Invalid value in log entry.");
+                }
+                return value;
+            });
+
+            foreach (var logValue in logValuesAsDoubles)
+            {
+                if (Math.Abs(logValue - referenceRelativeHumidity) > 1)
                 {
                     return "discard";
                 }

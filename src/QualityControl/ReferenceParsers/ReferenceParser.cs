@@ -5,7 +5,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.ReferenceParsers
 {
     public class ReferenceParser : IReferenceParser
     {
-        public IDictionary<SensorType, double> ParseReference(string referenceLine)
+        public IDictionary<SensorType, string> ParseReference(string referenceLine)
         {
             if (string.IsNullOrWhiteSpace(referenceLine) || !referenceLine.StartsWith("reference "))
             {
@@ -16,27 +16,12 @@ namespace ThreeSixtyFiveWidgets.QualityControl.ReferenceParsers
             {
                 throw new ArgumentException("Reference values are invalid.");
             }
-
-            if (!double.TryParse(referenceLineSplit[1], out var referenceTemperature))
+            
+            return new Dictionary<SensorType, string>
             {
-                throw new ArgumentException("Reference temperature value is invalid.");
-            }
-
-            if (!double.TryParse(referenceLineSplit[2], out var referenceRelativeHumidity))
-            {
-                throw new ArgumentException("Reference relative humidity value is invalid.");
-            }
-
-            if (!double.TryParse(referenceLineSplit[3], out var referenceCarbonMonoxidePpm))
-            {
-                throw new ArgumentException("Reference carbon monoxide ppm value is invalid.");
-            }
-
-            return new Dictionary<SensorType, double>
-            {
-                {SensorType.Thermometer, referenceTemperature},
-                {SensorType.HumiditySensor, referenceRelativeHumidity},
-                {SensorType.CarbonMonoxideDetector, referenceCarbonMonoxidePpm},
+                {SensorType.Thermometer, referenceLineSplit[1]},
+                {SensorType.HumiditySensor, referenceLineSplit[2]},
+                {SensorType.CarbonMonoxideDetector, referenceLineSplit[3]},
             };
         }
     }

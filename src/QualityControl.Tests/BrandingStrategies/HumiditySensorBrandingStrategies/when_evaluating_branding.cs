@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Linq;
+using NUnit.Framework;
 using Shouldly;
 using ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies;
 
@@ -20,7 +21,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.BrandingStrategies.Humidity
         [TestCase(45.0, new[] { 46.0, 43.9 }, "discard", TestName = "{m}: 3 too low value")]
         public void branding_is_evaluated_correctly(double referenceValue, double[] logValues, string expectedBranding)
         {
-            var branding = _brandingStrategy.EvaluateBranding(referenceValue, logValues);
+            var branding = _brandingStrategy.EvaluateBranding($"{referenceValue}", logValues.Select(x => $"{x}"));
 
             branding.ShouldBe(expectedBranding);
         }

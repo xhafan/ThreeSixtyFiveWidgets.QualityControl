@@ -23,7 +23,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl
             _logEntries.Add(logEntry);
         }
 
-        public void EvaluateBranding(double referenceValue, IBrandingStrategy brandingStrategy)
+        public void EvaluateBranding(string referenceValue, IBrandingStrategy brandingStrategy)
         {
             Branding = brandingStrategy.EvaluateBranding(referenceValue, _logEntries.Select(x => x.Value));
         }

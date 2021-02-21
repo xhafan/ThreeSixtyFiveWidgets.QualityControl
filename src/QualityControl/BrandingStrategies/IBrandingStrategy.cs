@@ -4,6 +4,6 @@ namespace ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies
 {
     public interface IBrandingStrategy
     {
-        string EvaluateBranding(double referenceValue, IEnumerable<double> logValues);
+        string EvaluateBranding(string referenceValue, IEnumerable<string> logValues);
     }
 }
