@@ -6,7 +6,7 @@ using ThreeSixtyFiveWidgets.QualityControl.SensorParsers;
 
 namespace ThreeSixtyFiveWidgets.QualityControl.Tests.Builders
 {
-    public class LogFileEvaluatorBuilder
+    public class SensorEvaluatorBuilder
     {
         private IReferenceParser _referenceParser;
         private ISensorParser _sensorParser;
@@ -14,37 +14,37 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.Builders
         private IReadingParser _readingParser;
         private IBrandingStrategyDeterminer _brandingStrategyDeterminer;
 
-        internal LogFileEvaluatorBuilder WithReferenceParser(IReferenceParser referenceParser)
+        internal SensorEvaluatorBuilder WithReferenceParser(IReferenceParser referenceParser)
         {
             _referenceParser = referenceParser;
             return this;
         }
 
-        internal LogFileEvaluatorBuilder WithSensorParser(ISensorParser sensorParser)
+        internal SensorEvaluatorBuilder WithSensorParser(ISensorParser sensorParser)
         {
             _sensorParser = sensorParser;
             return this;
         }
 
-        internal LogFileEvaluatorBuilder WithLineMeaningDetector(ILineMeaningDetector lineMeaningDetector)
+        internal SensorEvaluatorBuilder WithLineMeaningDetector(ILineMeaningDetector lineMeaningDetector)
         {
             _lineMeaningDetector = lineMeaningDetector;
             return this;
         }
 
-        internal LogFileEvaluatorBuilder WithReadingParser(IReadingParser readingParser)
+        internal SensorEvaluatorBuilder WithReadingParser(IReadingParser readingParser)
         {
             _readingParser = readingParser;
             return this;
         }
 
-        internal LogFileEvaluatorBuilder WithBrandingStrategyDeterminer(IBrandingStrategyDeterminer brandingStrategyDeterminer)
+        internal SensorEvaluatorBuilder WithBrandingStrategyDeterminer(IBrandingStrategyDeterminer brandingStrategyDeterminer)
         {
             _brandingStrategyDeterminer = brandingStrategyDeterminer;
             return this;
         }
 
-        public LogFileEvaluator Build()
+        public SensorEvaluator Build()
         {
             return new(
                 _referenceParser ?? new ReferenceParser(),

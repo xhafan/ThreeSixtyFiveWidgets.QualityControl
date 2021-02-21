@@ -2,17 +2,17 @@
 using NUnit.Framework;
 using Shouldly;
 
-namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
+namespace ThreeSixtyFiveWidgets.QualityControl.Tests.SensorEvaluators
 {
     [TestFixture]
     public class when_evaluating_log_file_with_invalid_sensor_line
     {
-        private LogFileEvaluator _logFileEvaluator;
+        private SensorEvaluator _sensorEvaluator;
 
         [SetUp]
         public void Context()
         {
-            _logFileEvaluator = new LogFileEvaluator();
+            _sensorEvaluator = new SensorEvaluator();
         }
 
         [TestCase("noise temp-1", "Invalid log line.",
@@ -23,7 +23,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
             TestName = "{m}: 3 Extra data in sensor line")]
         public void exception_is_thrown(string sensorLine, string expectedExceptionMessage)
         {
-            var exception = Should.Throw<ArgumentException>(() => _logFileEvaluator.EvaluateLogFileFromString(
+            var exception = Should.Throw<ArgumentException>(() => _sensorEvaluator.EvaluateLogFileFromString(
 $@"reference 70.0 45.0 6
 {sensorLine}
 2007-04-05T22:00 72.4"

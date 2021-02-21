@@ -12,9 +12,9 @@ using ThreeSixtyFiveWidgets.QualityControl.SensorParsers;
 namespace ThreeSixtyFiveWidgets.QualityControl
 {
     /// <summary>
-    /// Evaluates log files.
+    /// Evaluates a log file with sensor readings.
     /// </summary>
-    public class LogFileEvaluator
+    public class SensorEvaluator
     {
         private readonly IReferenceParser _referenceParser;
         private readonly ISensorParser _sensorParser;
@@ -22,7 +22,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl
         private readonly IReadingParser _readingParser;
         private readonly IBrandingStrategyDeterminer _brandingStrategyDeterminer;
 
-        internal LogFileEvaluator(
+        internal SensorEvaluator(
             IReferenceParser referenceParser,
             ISensorParser sensorParser,
             ILineMeaningDetector lineMeaningDetector,
@@ -37,7 +37,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl
             _brandingStrategyDeterminer = brandingStrategyDeterminer;
         }
 
-        internal LogFileEvaluator()
+        internal SensorEvaluator()
             : this(
                 new ReferenceParser(),
                 new SensorParser(),
@@ -49,13 +49,13 @@ namespace ThreeSixtyFiveWidgets.QualityControl
         }
 
         /// <summary>
-        /// Evaluates log file provided in a string.
+        /// Evaluates a log file with sensor readings provided in a string.
         /// </summary>
         /// <param name="logContentsStr">Log file content</param>
         /// <returns>Evaluation output in json format, keys are sensor names, values are evaluated branding.</returns>
         public static string EvaluateLogFile(string logContentsStr)
         {
-            return new LogFileEvaluator().EvaluateLogFileFromString(logContentsStr);
+            return new SensorEvaluator().EvaluateLogFileFromString(logContentsStr);
         }
 
         internal string EvaluateLogFileFromString(string logContentsStr)

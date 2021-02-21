@@ -2,17 +2,17 @@
 using NUnit.Framework;
 using Shouldly;
 
-namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
+namespace ThreeSixtyFiveWidgets.QualityControl.Tests.SensorEvaluators
 {
     [TestFixture]
     public class when_evaluating_log_file_with_invalid_reference_values
     {
-        private LogFileEvaluator _logFileEvaluator;
+        private SensorEvaluator _sensorEvaluator;
 
         [SetUp]
         public void Context()
         {
-            _logFileEvaluator = new LogFileEvaluator();
+            _sensorEvaluator = new SensorEvaluator();
         }
 
         [TestCase("70.0 45.0", "Reference values are invalid.", 
@@ -31,7 +31,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
             TestName = "{m}: 7 Reference carbon monoxide ppm value not an integer")]
         public void exception_is_thrown(string referenceValues, string expectedExceptionMessage)
         {
-            var exception = Should.Throw<ArgumentException>(() => _logFileEvaluator.EvaluateLogFileFromString(
+            var exception = Should.Throw<ArgumentException>(() => _sensorEvaluator.EvaluateLogFileFromString(
 $@"reference {referenceValues}
 thermometer temp-1
 2007-04-05T22:00 72.4

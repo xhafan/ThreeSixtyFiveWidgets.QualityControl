@@ -5,12 +5,12 @@ using Shouldly;
 using ThreeSixtyFiveWidgets.QualityControl.LineMeaningDetectors;
 using ThreeSixtyFiveWidgets.QualityControl.Tests.Builders;
 
-namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
+namespace ThreeSixtyFiveWidgets.QualityControl.Tests.SensorEvaluators
 {
     [TestFixture]
     public class when_evaluating_log_file_with_line_meaning_detector_returning_unknown_meaning
     {
-        private LogFileEvaluator _logFileEvaluator;
+        private SensorEvaluator _sensorEvaluator;
 
         [SetUp]
         public void Context()
@@ -18,7 +18,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
             var lineMeaningDetector = A.Fake<ILineMeaningDetector>();
             A.CallTo(() => lineMeaningDetector.DetectLineMeaning(A<string>._)).Returns((LogLineMeaning)(-1));
 
-            _logFileEvaluator = new LogFileEvaluatorBuilder()
+            _sensorEvaluator = new SensorEvaluatorBuilder()
                 .WithLineMeaningDetector(lineMeaningDetector)
                 .Build();
         }
@@ -26,7 +26,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
         [Test]
         public void exception_is_thrown()
         {
-            var exception = Should.Throw<ArgumentException>(() => _logFileEvaluator.EvaluateLogFileFromString(
+            var exception = Should.Throw<ArgumentException>(() => _sensorEvaluator.EvaluateLogFileFromString(
 @"reference 70.0 45.0 6
 thermometer temp-1
 2007-04-05T22:00 72.4"

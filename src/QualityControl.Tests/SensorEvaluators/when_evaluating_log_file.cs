@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using Shouldly;
 
-namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
+namespace ThreeSixtyFiveWidgets.QualityControl.Tests.SensorEvaluators
 {
     [TestFixture]
     public class when_evaluating_log_file
@@ -11,7 +11,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
         [SetUp]
         public void Context()
         {
-            _output = LogFileEvaluator.EvaluateLogFile(
+            _output = SensorEvaluator.EvaluateLogFile(
 @"reference 70.0 45.0 6
 thermometer temp-1
 2007-04-05T22:00 72.4
