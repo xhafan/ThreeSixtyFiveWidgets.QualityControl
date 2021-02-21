@@ -1,4 +1,4 @@
-﻿namespace Widgets365.QualityControl.BrandingStrategies
+﻿namespace ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies
 {
     public interface IBrandingStrategyDeterminer
     {

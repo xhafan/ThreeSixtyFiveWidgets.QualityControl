@@ -1,4 +1,4 @@
-﻿namespace Widgets365.QualityControl.SensorIdentifierParsers
+﻿namespace ThreeSixtyFiveWidgets.QualityControl.SensorIdentifierParsers
 {
     public interface ISensorIdentifierParser
     {

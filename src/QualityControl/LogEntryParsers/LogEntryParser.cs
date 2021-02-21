@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Widgets365.QualityControl.LogEntryParsers
+namespace ThreeSixtyFiveWidgets.QualityControl.LogEntryParsers
 {
     public class LogEntryParser : ILogEntryParser
     {

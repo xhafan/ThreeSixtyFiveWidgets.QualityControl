@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Widgets365.QualityControl.BrandingStrategies
+namespace ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies
 {
     public class BrandingStrategyDeterminer : IBrandingStrategyDeterminer
     {

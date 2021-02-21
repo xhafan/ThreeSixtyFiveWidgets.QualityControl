@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Linq;
 
-namespace Widgets365.QualityControl.LineMeaningDetectors
+namespace ThreeSixtyFiveWidgets.QualityControl.LineMeaningDetectors
 {
     public class LineMeaningDetector : ILineMeaningDetector
     {

@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
 using Shouldly;
-using Widgets365.QualityControl.Tests.Builders;
+using ThreeSixtyFiveWidgets.QualityControl.Tests.Builders;
 
-namespace Widgets365.QualityControl.Tests.LogFileEvaluators
+namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
 {
     [TestFixture]
     public class when_evaluating_log_file

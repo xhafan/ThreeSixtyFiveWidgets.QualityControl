@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using MathNet.Numerics.Statistics;
 
-namespace Widgets365.QualityControl.BrandingStrategies
+namespace ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies
 {
     public class ThermometerBrandingStrategy : IBrandingStrategy
     {

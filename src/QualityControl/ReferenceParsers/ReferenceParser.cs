@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Widgets365.QualityControl.ReferenceParsers
+namespace ThreeSixtyFiveWidgets.QualityControl.ReferenceParsers
 {
     public class ReferenceParser : IReferenceParser
     {

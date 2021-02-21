@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>Widgets365.QualityControl.Tests</RootNamespace>
-    <AssemblyName>Widgets365.QualityControl.Tests</AssemblyName>
+    <RootNamespace>ThreeSixtyFiveWidgets.QualityControl.Tests</RootNamespace>
+    <AssemblyName>ThreeSixtyFiveWidgets.QualityControl.Tests</AssemblyName>
   </PropertyGroup>
 
   <Import Project="..\SharedAssemblyInfo.props" />

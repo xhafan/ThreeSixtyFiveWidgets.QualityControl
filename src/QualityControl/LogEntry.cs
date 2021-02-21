@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Widgets365.QualityControl
+namespace ThreeSixtyFiveWidgets.QualityControl
 {
     public record LogEntry(DateTime LoggedOn, double Value)
     {

@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
 using Shouldly;
-using Widgets365.QualityControl.BrandingStrategies;
+using ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies;
 
-namespace Widgets365.QualityControl.Tests.BrandingStrategies.CarbonMonoxideDetectorBrandingStrategies
+namespace ThreeSixtyFiveWidgets.QualityControl.Tests.BrandingStrategies.CarbonMonoxideDetectorBrandingStrategies
 {
     [TestFixture]
     public class when_evaluating_branding

@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>Widgets365.QualityControl</RootNamespace>
-    <AssemblyName>Widgets365.QualityControl</AssemblyName>
+    <RootNamespace>ThreeSixtyFiveWidgets.QualityControl</RootNamespace>
+    <AssemblyName>ThreeSixtyFiveWidgets.QualityControl</AssemblyName>
   </PropertyGroup>
 
   <Import Project="..\SharedAssemblyInfo.props" />

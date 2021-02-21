@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Widgets365.QualityControl
+namespace ThreeSixtyFiveWidgets.QualityControl
 {
     public static class SensorConstants
     {

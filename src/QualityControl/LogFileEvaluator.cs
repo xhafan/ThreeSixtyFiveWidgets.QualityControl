@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using Newtonsoft.Json.Linq;
-using Widgets365.QualityControl.BrandingStrategies;
-using Widgets365.QualityControl.LineMeaningDetectors;
-using Widgets365.QualityControl.LogEntryParsers;
-using Widgets365.QualityControl.ReferenceParsers;
-using Widgets365.QualityControl.SensorIdentifierParsers;
+using ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies;
+using ThreeSixtyFiveWidgets.QualityControl.LineMeaningDetectors;
+using ThreeSixtyFiveWidgets.QualityControl.LogEntryParsers;
+using ThreeSixtyFiveWidgets.QualityControl.ReferenceParsers;
+using ThreeSixtyFiveWidgets.QualityControl.SensorIdentifierParsers;
 
-namespace Widgets365.QualityControl
+namespace ThreeSixtyFiveWidgets.QualityControl
 {
     public class LogFileEvaluator : ILogFileEvaluator
     {

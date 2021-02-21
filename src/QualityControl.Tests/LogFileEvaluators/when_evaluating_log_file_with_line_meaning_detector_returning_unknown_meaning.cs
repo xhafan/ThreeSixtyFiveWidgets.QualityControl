@@ -2,10 +2,10 @@
 using FakeItEasy;
 using NUnit.Framework;
 using Shouldly;
-using Widgets365.QualityControl.LineMeaningDetectors;
-using Widgets365.QualityControl.Tests.Builders;
+using ThreeSixtyFiveWidgets.QualityControl.LineMeaningDetectors;
+using ThreeSixtyFiveWidgets.QualityControl.Tests.Builders;
 
-namespace Widgets365.QualityControl.Tests.LogFileEvaluators
+namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
 {
     [TestFixture]
     public class when_evaluating_log_file_with_line_meaning_detector_returning_unknown_meaning

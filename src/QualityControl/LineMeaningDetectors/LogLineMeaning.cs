@@ -1,4 +1,4 @@
-﻿namespace Widgets365.QualityControl.LineMeaningDetectors
+﻿namespace ThreeSixtyFiveWidgets.QualityControl.LineMeaningDetectors
 {
     public enum LogLineMeaning
     {

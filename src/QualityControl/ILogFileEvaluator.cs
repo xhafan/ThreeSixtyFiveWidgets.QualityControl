@@ -1,4 +1,4 @@
-﻿namespace Widgets365.QualityControl
+﻿namespace ThreeSixtyFiveWidgets.QualityControl
 {
     public interface ILogFileEvaluator
     {

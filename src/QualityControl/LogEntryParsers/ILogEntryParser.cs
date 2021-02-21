@@ -1,4 +1,4 @@
-﻿namespace Widgets365.QualityControl.LogEntryParsers
+﻿namespace ThreeSixtyFiveWidgets.QualityControl.LogEntryParsers
 {
     public interface ILogEntryParser
     {

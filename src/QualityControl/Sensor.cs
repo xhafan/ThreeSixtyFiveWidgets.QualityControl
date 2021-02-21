@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Widgets365.QualityControl.BrandingStrategies;
+using ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies;
 
-namespace Widgets365.QualityControl
+namespace ThreeSixtyFiveWidgets.QualityControl
 {
     public class Sensor
     {

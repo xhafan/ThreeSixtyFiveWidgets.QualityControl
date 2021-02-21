@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
 using Shouldly;
-using Widgets365.QualityControl.BrandingStrategies;
+using ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies;
 
-namespace Widgets365.QualityControl.Tests.BrandingStrategies.ThermometerBrandingStrategies
+namespace ThreeSixtyFiveWidgets.QualityControl.Tests.BrandingStrategies.ThermometerBrandingStrategies
 {
     [TestFixture]
     public class when_evaluating_branding

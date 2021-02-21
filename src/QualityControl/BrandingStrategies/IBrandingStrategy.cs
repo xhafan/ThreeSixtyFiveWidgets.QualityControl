@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Widgets365.QualityControl.BrandingStrategies
+namespace ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies
 {
     public interface IBrandingStrategy
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using NUnit.Framework;
 using Shouldly;
-using Widgets365.QualityControl.BrandingStrategies;
+using ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies;
 
-namespace Widgets365.QualityControl.Tests.BrandingStrategies.BrandingStrategyDeterminers
+namespace ThreeSixtyFiveWidgets.QualityControl.Tests.BrandingStrategies.BrandingStrategyDeterminers
 {
     [TestFixture]
     public class when_determining_branding_strategy_for_unknown_sensor_type
