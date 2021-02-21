@@ -9,7 +9,7 @@ namespace Widgets365.QualityControl.BrandingStrategies
         {
             foreach (var logValue in logValues)
             {
-                if (Math.Abs(logValue - referenceValue) > 1) // todo: add unit test for this
+                if (Math.Abs(logValue - referenceValue) > 1)
                 {
                     return "discard";
                 }
