@@ -6,10 +6,15 @@ namespace Widgets365.QualityControl
     public class LogFileEvaluator : ILogFileEvaluator
     {
         private readonly IReferenceParser _referenceParser;
+        private readonly ISensorIdentifierParser _sensorIdentifierParser;
 
-        public LogFileEvaluator(IReferenceParser referenceParser)
+        public LogFileEvaluator(
+            IReferenceParser referenceParser,
+            ISensorIdentifierParser sensorIdentifierParser
+            )
         {
             _referenceParser = referenceParser;
+            _sensorIdentifierParser = sensorIdentifierParser;
         }
 
         public string EvaluateLogFile(string logContentsStr)
@@ -18,6 +23,8 @@ namespace Widgets365.QualityControl
             {
                 var referenceLine = reader.ReadLine();
                 var referenceValuesBySensorType = _referenceParser.ParseReference(referenceLine);
+                var sensorIdentifierLine = reader.ReadLine();
+                var sensorTypeAndName = _sensorIdentifierParser.ParseSensorIdentifier(sensorIdentifierLine);
 
                 // while ((line = reader.ReadLine()) != null)
                 // {

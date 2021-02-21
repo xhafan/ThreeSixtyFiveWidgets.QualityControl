@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using Shouldly;
-using Widgets365.QualityControl.ReferenceParsers;
+using Widgets365.QualityControl.Tests.Builders;
 
 namespace Widgets365.QualityControl.Tests.LogFileEvaluators
 {
@@ -13,7 +13,8 @@ namespace Widgets365.QualityControl.Tests.LogFileEvaluators
         [SetUp]
         public void Context()
         {
-            var logFileEvaluator = new LogFileEvaluator(new ReferenceParser());
+            var logFileEvaluator = new LogFileEvaluatorBuilder().Build();
+
 
             _output = logFileEvaluator.EvaluateLogFile(
 @"reference 70.0 45.0 6

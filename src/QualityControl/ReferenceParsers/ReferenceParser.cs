@@ -7,11 +7,11 @@ namespace Widgets365.QualityControl.ReferenceParsers
     {
         public IDictionary<SensorType, double> ParseReference(string referenceLine)
         {
-            if (referenceLine == null || !referenceLine.StartsWith("reference "))
+            if (string.IsNullOrWhiteSpace(referenceLine) || !referenceLine.StartsWith("reference "))
             {
                 throw new ArgumentException("Reference line is missing.");
             }
-            var referenceLineSplit = referenceLine.Split(' ');
+            var referenceLineSplit = referenceLine.Split(new[] {" "}, StringSplitOptions.RemoveEmptyEntries);
             if (referenceLineSplit.Length != 4)
             {
                 throw new ArgumentException("Reference values are invalid.");

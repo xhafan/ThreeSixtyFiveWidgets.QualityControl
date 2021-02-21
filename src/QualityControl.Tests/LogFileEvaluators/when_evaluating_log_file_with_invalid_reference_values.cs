@@ -1,7 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using Shouldly;
-using Widgets365.QualityControl.ReferenceParsers;
+using Widgets365.QualityControl.Tests.Builders;
 
 namespace Widgets365.QualityControl.Tests.LogFileEvaluators
 {
@@ -13,7 +13,7 @@ namespace Widgets365.QualityControl.Tests.LogFileEvaluators
         [SetUp]
         public void Context()
         {
-            _logFileEvaluator = new LogFileEvaluator(new ReferenceParser());
+            _logFileEvaluator = new LogFileEvaluatorBuilder().Build();
         }
 
         [TestCase("70.0 45.0", "Reference values are invalid.", 
