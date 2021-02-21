@@ -5,7 +5,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.ReferenceParsers
 {
     public class ReferenceParser : IReferenceParser
     {
-        public IDictionary<SensorType, string> ParseReference(string referenceLine)
+        public IDictionary<SensorType, string> ParseReference(string? referenceLine)
         {
             if (string.IsNullOrWhiteSpace(referenceLine) || !referenceLine.StartsWith("reference "))
             {

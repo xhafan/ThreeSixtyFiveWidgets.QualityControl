@@ -16,7 +16,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl
 
         public SensorType SensorType { get; }
         public string Name { get; }
-        public string Branding { get; private set; }
+        public string? Branding { get; private set; }
 
         public void AddLogEntry(LogEntry logEntry)
         {

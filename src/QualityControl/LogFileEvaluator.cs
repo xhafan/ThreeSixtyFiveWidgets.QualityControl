@@ -36,11 +36,19 @@ namespace ThreeSixtyFiveWidgets.QualityControl
 
         public string EvaluateLogFile(string logContentsStr)
         {
+            if (string.IsNullOrWhiteSpace(logContentsStr))
+            {
+                throw new ArgumentException("Log file content is empty.");
+            }
             return EvaluateLogFile(new MemoryStream(Encoding.UTF8.GetBytes(logContentsStr)));
         }
 
         public string EvaluateLogFile(Stream logStream)
         {
+            if (logStream == null)
+            {
+                throw new ArgumentException("Log stream is null.");
+            }
             using var reader = new StreamReader(logStream);
             var referenceLine = reader.ReadLine();
             var referenceValuesBySensorType = _referenceParser.ParseReference(referenceLine);
@@ -69,9 +77,9 @@ namespace ThreeSixtyFiveWidgets.QualityControl
         private ICollection<Sensor> _ReadLinesAndParseSensorsAndLogEntries(TextReader reader)
         {
             var sensors = new List<Sensor>();
-            Sensor currentSensor = default;
+            Sensor? currentSensor = default;
 
-            string line;
+            string? line;
             while ((line = reader.ReadLine()) != null)
             {
                 var lineMeaning = _lineMeaningDetector.DetectLineMeaning(line);
