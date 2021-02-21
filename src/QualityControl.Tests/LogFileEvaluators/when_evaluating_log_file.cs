@@ -14,8 +14,8 @@ namespace Widgets365.QualityControl.Tests.LogFileEvaluators
         {
             var logFileEvaluator = new LogFileEvaluator();
 
-            _output = logFileEvaluator.EvaluateLogFile(@"
-reference 70.0 45.0 6
+            _output = logFileEvaluator.EvaluateLogFile(
+@"reference 70.0 45.0 6
 thermometer temp-1
 2007-04-05T22:00 72.4
 2007-04-05T22:01 76.0
@@ -62,8 +62,8 @@ monoxide mon-2
         [Test]
         public void output_is_correct()
         {
-            _output.ShouldBe(@"
-{
+            _output.ShouldBe(
+@"{
 ""temp-1"": ""precise"",
 ""temp-2"": ""ultra precise"",
 ""hum-1"": ""keep"",
