@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Widgets365.QualityControl</RootNamespace>
+    <AssemblyName>Widgets365.QualityControl</AssemblyName>
+  </PropertyGroup>
+
+</Project>
