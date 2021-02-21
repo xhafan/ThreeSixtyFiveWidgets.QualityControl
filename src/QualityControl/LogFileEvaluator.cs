@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using Newtonsoft.Json.Linq;
 using ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies;
 using ThreeSixtyFiveWidgets.QualityControl.LineMeaningDetectors;
@@ -35,7 +36,12 @@ namespace ThreeSixtyFiveWidgets.QualityControl
 
         public string EvaluateLogFile(string logContentsStr)
         {
-            using var reader = new StringReader(logContentsStr);
+            return EvaluateLogFile(new MemoryStream(Encoding.UTF8.GetBytes(logContentsStr)));
+        }
+
+        public string EvaluateLogFile(Stream logStream)
+        {
+            using var reader = new StreamReader(logStream);
             var referenceLine = reader.ReadLine();
             var referenceValuesBySensorType = _referenceParser.ParseReference(referenceLine);
 
@@ -55,7 +61,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl
             return jObject.ToString();
         }
 
-        private ICollection<Sensor> _ReadLinesAndParseSensorsAndLogEntries(StringReader reader)
+        private ICollection<Sensor> _ReadLinesAndParseSensorsAndLogEntries(TextReader reader)
         {
             var sensors = new List<Sensor>();
             Sensor currentSensor = default;
