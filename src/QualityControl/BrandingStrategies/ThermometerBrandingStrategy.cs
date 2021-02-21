@@ -24,11 +24,11 @@ namespace ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies
             });
 
             var (mean, standardDeviation) = logValuesAsDoubles.MeanStandardDeviation();
-            if (Math.Abs(referenceTemperature - mean) <= 0.5 && standardDeviation <= 3)
+            if (Math.Abs(referenceTemperature - mean) <= 0.5 && standardDeviation < 3)
             {
                 return "ultra precise";
             }
-            if (Math.Abs(referenceTemperature - mean) <= 0.5 && standardDeviation <= 5)
+            if (Math.Abs(referenceTemperature - mean) <= 0.5 && standardDeviation < 5)
             {
                 return "very precise";
             }
