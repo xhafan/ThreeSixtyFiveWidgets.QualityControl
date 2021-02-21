@@ -52,6 +52,11 @@ namespace ThreeSixtyFiveWidgets.QualityControl
                 sensor.EvaluateBranding(referenceValuesBySensorType[sensor.SensorType], brandingStrategy);
             }
 
+            return _GenerateOutput(sensors);
+        }
+
+        private string _GenerateOutput(IEnumerable<Sensor> sensors)
+        {
             var jObject = new JObject();
             foreach (var sensor in sensors)
             {
