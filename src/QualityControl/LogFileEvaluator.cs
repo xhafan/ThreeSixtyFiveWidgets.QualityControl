@@ -37,10 +37,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl
             _brandingStrategyDeterminer = brandingStrategyDeterminer;
         }
 
-        /// <summary>
-        /// Initializes the instance.
-        /// </summary>
-        public LogFileEvaluator()
+        internal LogFileEvaluator()
             : this(
                 new ReferenceParser(),
                 new SensorParser(),
@@ -56,21 +53,21 @@ namespace ThreeSixtyFiveWidgets.QualityControl
         /// </summary>
         /// <param name="logContentsStr">Log file content</param>
         /// <returns>Evaluation output in json format, keys are sensor names, values are evaluated branding.</returns>
-        public string EvaluateLogFile(string logContentsStr)
+        public static string EvaluateLogFile(string logContentsStr)
+        {
+            return new LogFileEvaluator().EvaluateLogFileFromString(logContentsStr);
+        }
+
+        internal string EvaluateLogFileFromString(string logContentsStr)
         {
             if (string.IsNullOrWhiteSpace(logContentsStr))
             {
                 throw new ArgumentException("Log file content is empty.");
             }
-            return EvaluateLogFile(new MemoryStream(Encoding.UTF8.GetBytes(logContentsStr)));
+            return EvaluateLogFileFromStream(new MemoryStream(Encoding.UTF8.GetBytes(logContentsStr)));
         }
 
-        /// <summary>
-        /// Evaluates log file provided in a stream.
-        /// </summary>
-        /// <param name="logStream">Log file stream</param>
-        /// <returns>Evaluation output in json format, keys are sensor names, values are evaluated branding.</returns>
-        public string EvaluateLogFile(Stream logStream)
+        internal string EvaluateLogFileFromStream(Stream logStream)
         {
             if (logStream == null)
             {

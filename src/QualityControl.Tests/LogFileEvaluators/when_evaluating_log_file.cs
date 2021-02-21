@@ -11,10 +11,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
         [SetUp]
         public void Context()
         {
-            var logFileEvaluator = new LogFileEvaluator();
-
-
-            _output = logFileEvaluator.EvaluateLogFile(
+            _output = LogFileEvaluator.EvaluateLogFile(
 @"reference 70.0 45.0 6
 thermometer temp-1
 2007-04-05T22:00 72.4

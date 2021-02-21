@@ -23,7 +23,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
             TestName = "{m}: 3 Too many entries")]
         public void exception_is_thrown(string readingLine, string expectedExceptionMessage)
         {
-            var exception = Should.Throw<ArgumentException>(() => _logFileEvaluator.EvaluateLogFile(
+            var exception = Should.Throw<ArgumentException>(() => _logFileEvaluator.EvaluateLogFileFromString(
 $@"reference 70.0 45.0 6
 thermometer temp-1
 {readingLine}"

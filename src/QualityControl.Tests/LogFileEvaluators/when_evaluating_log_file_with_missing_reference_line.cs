@@ -18,7 +18,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
         [Test]
         public void exception_is_thrown()
         {
-            var exception = Should.Throw<ArgumentException>(() => _logFileEvaluator.EvaluateLogFile(
+            var exception = Should.Throw<ArgumentException>(() => _logFileEvaluator.EvaluateLogFileFromString(
 @"thermometer temp-1
 2007-04-05T22:00 72.4"
                 )

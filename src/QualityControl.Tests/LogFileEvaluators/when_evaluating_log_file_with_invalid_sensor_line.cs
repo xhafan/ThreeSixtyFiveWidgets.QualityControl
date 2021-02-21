@@ -23,7 +23,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
             TestName = "{m}: 3 Extra data in sensor line")]
         public void exception_is_thrown(string sensorLine, string expectedExceptionMessage)
         {
-            var exception = Should.Throw<ArgumentException>(() => _logFileEvaluator.EvaluateLogFile(
+            var exception = Should.Throw<ArgumentException>(() => _logFileEvaluator.EvaluateLogFileFromString(
 $@"reference 70.0 45.0 6
 {sensorLine}
 2007-04-05T22:00 72.4"

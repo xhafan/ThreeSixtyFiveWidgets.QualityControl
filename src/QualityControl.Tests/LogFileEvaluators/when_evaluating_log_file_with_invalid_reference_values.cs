@@ -31,7 +31,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
             TestName = "{m}: 7 Reference carbon monoxide ppm value not an integer")]
         public void exception_is_thrown(string referenceValues, string expectedExceptionMessage)
         {
-            var exception = Should.Throw<ArgumentException>(() => _logFileEvaluator.EvaluateLogFile(
+            var exception = Should.Throw<ArgumentException>(() => _logFileEvaluator.EvaluateLogFileFromString(
 $@"reference {referenceValues}
 thermometer temp-1
 2007-04-05T22:00 72.4

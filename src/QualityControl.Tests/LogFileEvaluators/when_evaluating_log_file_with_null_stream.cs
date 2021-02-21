@@ -19,7 +19,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
         [Test]
         public void exception_is_thrown()
         {
-            var ex = Should.Throw<ArgumentException>(() => _logFileEvaluator.EvaluateLogFile((Stream)null));
+            var ex = Should.Throw<ArgumentException>(() => _logFileEvaluator.EvaluateLogFileFromStream((Stream)null));
 
             ex.Message.ShouldBe("Log stream is null.");
         }

@@ -20,7 +20,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
         [TestCase(" ", TestName = "{m}: 3 whitespace")]
         public void exception_is_thrown(string logFileContent)
         {
-            var ex = Should.Throw<ArgumentException>(() => _logFileEvaluator.EvaluateLogFile(logFileContent));
+            var ex = Should.Throw<ArgumentException>(() => _logFileEvaluator.EvaluateLogFileFromString(logFileContent));
 
             ex.Message.ShouldBe("Log file content is empty.");
         }
