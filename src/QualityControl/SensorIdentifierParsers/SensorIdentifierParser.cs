@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Widgets365.QualityControl.ReferenceParsers
+namespace Widgets365.QualityControl.SensorIdentifierParsers
 {
     public class SensorIdentifierParser : ISensorIdentifierParser
     {
