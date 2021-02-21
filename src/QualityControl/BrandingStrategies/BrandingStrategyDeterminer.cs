@@ -15,7 +15,7 @@ namespace Widgets365.QualityControl.BrandingStrategies
                 case SensorType.CarbonMonoxideDetector:
                     return new CarbonMonoxideDetectorBrandingStrategy();
                 default:
-                    throw new ArgumentException($"Unknown sensor type {sensorType}"); // todo: not tested
+                    throw new ArgumentException($"Unknown sensor type {sensorType}");
             }
         }
     }

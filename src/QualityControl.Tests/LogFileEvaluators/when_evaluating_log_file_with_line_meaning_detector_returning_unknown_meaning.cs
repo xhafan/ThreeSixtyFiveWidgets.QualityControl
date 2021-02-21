@@ -16,7 +16,7 @@ namespace Widgets365.QualityControl.Tests.LogFileEvaluators
         public void Context()
         {
             var lineMeaningDetector = A.Fake<ILineMeaningDetector>();
-            A.CallTo(() => lineMeaningDetector.DetectLineMeaning(A<string>._)).Returns(LogLineMeaning.Unknown);
+            A.CallTo(() => lineMeaningDetector.DetectLineMeaning(A<string>._)).Returns((LogLineMeaning)(-1));
 
             _logFileEvaluator = new LogFileEvaluatorBuilder()
                 .WithLineMeaningDetector(lineMeaningDetector)
