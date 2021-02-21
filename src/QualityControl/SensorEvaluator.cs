@@ -58,6 +58,16 @@ namespace ThreeSixtyFiveWidgets.QualityControl
             return new SensorEvaluator().EvaluateLogFileFromString(logContentsStr);
         }
 
+        /// <summary>
+        /// Evaluates a log file with sensor readings provided in a stream.
+        /// </summary>
+        /// <param name="logStream">Log file stream</param>
+        /// <returns>Evaluation output in json format, keys are sensor names, values are evaluated branding.</returns>
+        public static string EvaluateLogFile(Stream logStream)
+        {
+            return new SensorEvaluator().EvaluateLogFileFromStream(logStream);
+        }
+
         internal string EvaluateLogFileFromString(string logContentsStr)
         {
             if (string.IsNullOrWhiteSpace(logContentsStr))

@@ -1,17 +1,19 @@
-﻿using NUnit.Framework;
+﻿using System.IO;
+using System.Text;
+using NUnit.Framework;
 using Shouldly;
 
 namespace ThreeSixtyFiveWidgets.QualityControl.Tests.SensorEvaluators
 {
     [TestFixture]
-    public class when_evaluating_log_file
+    public class when_evaluating_log_file_from_stream
     {
         private string _output;
 
         [SetUp]
         public void Context()
         {
-            _output = SensorEvaluator.EvaluateLogFile(
+            _output = SensorEvaluator.EvaluateLogFile(new MemoryStream(Encoding.UTF8.GetBytes(
 @"reference 70.0 45.0 6
 thermometer temp-1
 2007-04-05T22:00 72.4
@@ -53,14 +55,14 @@ monoxide mon-2
 2007-04-05T22:06 10
 2007-04-05T22:07 8
 2007-04-05T22:08 6
-");
+")));
         }
 
         [Test]
         public void output_is_correct()
         {
             _output.ShouldBe(
-@"{
+                @"{
   ""temp-1"": ""precise"",
   ""temp-2"": ""ultra precise"",
   ""hum-1"": ""keep"",
