@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace ThreeSixtyFiveWidgets.QualityControl.ReadingParsers
 {
-    public class ReadingParser : IReadingParser
+    internal class ReadingParser : IReadingParser
     {
         public Reading ParseReading(string readingLine)
         {

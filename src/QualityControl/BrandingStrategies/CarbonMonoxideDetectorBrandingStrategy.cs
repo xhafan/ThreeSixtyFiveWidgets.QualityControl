@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies
 {
-    public class CarbonMonoxideDetectorBrandingStrategy : IBrandingStrategy
+    internal class CarbonMonoxideDetectorBrandingStrategy : IBrandingStrategy
     {
         public string EvaluateBranding(string referenceValue, IEnumerable<string> logValues)
         {

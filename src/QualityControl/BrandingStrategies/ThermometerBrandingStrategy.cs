@@ -5,7 +5,7 @@ using MathNet.Numerics.Statistics;
 
 namespace ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies
 {
-    public class ThermometerBrandingStrategy : IBrandingStrategy
+    internal class ThermometerBrandingStrategy : IBrandingStrategy
     {
         public string EvaluateBranding(string referenceValue, IEnumerable<string> logValues)
         {

@@ -1,6 +1,6 @@
 ﻿namespace ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies
 {
-    public interface IBrandingStrategyDeterminer
+    internal interface IBrandingStrategyDeterminer
     {
         IBrandingStrategy DetermineBrandingStrategy(SensorType sensorType);
     }

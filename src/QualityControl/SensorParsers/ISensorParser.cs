@@ -1,6 +1,6 @@
 ﻿namespace ThreeSixtyFiveWidgets.QualityControl.SensorParsers
 {
-    public interface ISensorParser
+    internal interface ISensorParser
     {
         Sensor ParseSensor(string sensorLine);
     }

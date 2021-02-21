@@ -14,31 +14,31 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.Builders
         private IReadingParser _readingParser;
         private IBrandingStrategyDeterminer _brandingStrategyDeterminer;
 
-        public LogFileEvaluatorBuilder WithReferenceParser(IReferenceParser referenceParser)
+        internal LogFileEvaluatorBuilder WithReferenceParser(IReferenceParser referenceParser)
         {
             _referenceParser = referenceParser;
             return this;
         }
 
-        public LogFileEvaluatorBuilder WithSensorParser(ISensorParser sensorParser)
+        internal LogFileEvaluatorBuilder WithSensorParser(ISensorParser sensorParser)
         {
             _sensorParser = sensorParser;
             return this;
         }
 
-        public LogFileEvaluatorBuilder WithLineMeaningDetector(ILineMeaningDetector lineMeaningDetector)
+        internal LogFileEvaluatorBuilder WithLineMeaningDetector(ILineMeaningDetector lineMeaningDetector)
         {
             _lineMeaningDetector = lineMeaningDetector;
             return this;
         }
 
-        public LogFileEvaluatorBuilder WithReadingParser(IReadingParser readingParser)
+        internal LogFileEvaluatorBuilder WithReadingParser(IReadingParser readingParser)
         {
             _readingParser = readingParser;
             return this;
         }
 
-        public LogFileEvaluatorBuilder WithBrandingStrategyDeterminer(IBrandingStrategyDeterminer brandingStrategyDeterminer)
+        internal LogFileEvaluatorBuilder WithBrandingStrategyDeterminer(IBrandingStrategyDeterminer brandingStrategyDeterminer)
         {
             _brandingStrategyDeterminer = brandingStrategyDeterminer;
             return this;

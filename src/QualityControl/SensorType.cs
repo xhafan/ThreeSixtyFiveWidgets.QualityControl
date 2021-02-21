@@ -1,6 +1,6 @@
 ﻿namespace ThreeSixtyFiveWidgets.QualityControl
 {
-    public enum SensorType
+    internal enum SensorType
     {
         Thermometer,
         HumiditySensor,

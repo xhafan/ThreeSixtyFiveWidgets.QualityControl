@@ -2,7 +2,7 @@
 
 namespace ThreeSixtyFiveWidgets.QualityControl.SensorParsers
 {
-    public class SensorParser : ISensorParser
+    internal class SensorParser : ISensorParser
     {
         public Sensor ParseSensor(string sensorLine)
         {

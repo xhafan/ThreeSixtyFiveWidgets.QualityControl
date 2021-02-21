@@ -11,7 +11,10 @@ using ThreeSixtyFiveWidgets.QualityControl.SensorParsers;
 
 namespace ThreeSixtyFiveWidgets.QualityControl
 {
-    public class LogFileEvaluator : ILogFileEvaluator
+    /// <summary>
+    /// Evaluates log files.
+    /// </summary>
+    public class LogFileEvaluator
     {
         private readonly IReferenceParser _referenceParser;
         private readonly ISensorParser _sensorParser;
@@ -19,7 +22,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl
         private readonly IReadingParser _readingParser;
         private readonly IBrandingStrategyDeterminer _brandingStrategyDeterminer;
 
-        public LogFileEvaluator(
+        internal LogFileEvaluator(
             IReferenceParser referenceParser,
             ISensorParser sensorParser,
             ILineMeaningDetector lineMeaningDetector,
@@ -34,6 +37,25 @@ namespace ThreeSixtyFiveWidgets.QualityControl
             _brandingStrategyDeterminer = brandingStrategyDeterminer;
         }
 
+        /// <summary>
+        /// Initializes the instance.
+        /// </summary>
+        public LogFileEvaluator()
+            : this(
+                new ReferenceParser(),
+                new SensorParser(),
+                new LineMeaningDetector(),
+                new ReadingParser(),
+                new BrandingStrategyDeterminer()
+            )
+        {
+        }
+
+        /// <summary>
+        /// Evaluates log file provided in a string.
+        /// </summary>
+        /// <param name="logContentsStr">Log file content</param>
+        /// <returns>Evaluation output in json format, keys are sensor names, values are evaluated branding.</returns>
         public string EvaluateLogFile(string logContentsStr)
         {
             if (string.IsNullOrWhiteSpace(logContentsStr))
@@ -43,6 +65,11 @@ namespace ThreeSixtyFiveWidgets.QualityControl
             return EvaluateLogFile(new MemoryStream(Encoding.UTF8.GetBytes(logContentsStr)));
         }
 
+        /// <summary>
+        /// Evaluates log file provided in a stream.
+        /// </summary>
+        /// <param name="logStream">Log file stream</param>
+        /// <returns>Evaluation output in json format, keys are sensor names, values are evaluated branding.</returns>
         public string EvaluateLogFile(Stream logStream)
         {
             if (logStream == null)

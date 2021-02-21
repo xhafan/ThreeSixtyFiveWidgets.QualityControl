@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ThreeSixtyFiveWidgets.QualityControl.LineMeaningDetectors
 {
-    public class LineMeaningDetector : ILineMeaningDetector
+    internal class LineMeaningDetector : ILineMeaningDetector
     {
         public LogLineMeaning DetectLineMeaning(string line)
         {

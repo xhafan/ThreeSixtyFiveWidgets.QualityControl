@@ -2,7 +2,7 @@
 
 namespace ThreeSixtyFiveWidgets.QualityControl
 {
-    public static class SensorConstants
+    internal static class SensorConstants
     {
         public static IDictionary<string, SensorType> SensorTypeBySensorIdentifier =
             new Dictionary<string, SensorType>

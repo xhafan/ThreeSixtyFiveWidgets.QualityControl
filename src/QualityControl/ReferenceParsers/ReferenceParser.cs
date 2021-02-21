@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ThreeSixtyFiveWidgets.QualityControl.ReferenceParsers
 {
-    public class ReferenceParser : IReferenceParser
+    internal class ReferenceParser : IReferenceParser
     {
         public IDictionary<SensorType, string> ParseReference(string? referenceLine)
         {

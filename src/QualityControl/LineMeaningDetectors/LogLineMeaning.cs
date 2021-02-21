@@ -1,6 +1,6 @@
 ﻿namespace ThreeSixtyFiveWidgets.QualityControl.LineMeaningDetectors
 {
-    public enum LogLineMeaning
+    internal enum LogLineMeaning
     {
         Sensor,
         Reading

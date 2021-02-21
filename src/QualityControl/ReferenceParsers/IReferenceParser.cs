@@ -2,7 +2,7 @@
 
 namespace ThreeSixtyFiveWidgets.QualityControl.ReferenceParsers
 {
-    public interface IReferenceParser
+    internal interface IReferenceParser
     {
         IDictionary<SensorType, string> ParseReference(string? referenceLine);
     }

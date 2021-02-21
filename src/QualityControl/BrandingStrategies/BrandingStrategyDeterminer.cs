@@ -2,7 +2,7 @@
 
 namespace ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies
 {
-    public class BrandingStrategyDeterminer : IBrandingStrategyDeterminer
+    internal class BrandingStrategyDeterminer : IBrandingStrategyDeterminer
     {
         public IBrandingStrategy DetermineBrandingStrategy(SensorType sensorType)
         {

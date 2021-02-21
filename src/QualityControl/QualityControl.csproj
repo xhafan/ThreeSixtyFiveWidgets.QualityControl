@@ -4,6 +4,7 @@
     <RootNamespace>ThreeSixtyFiveWidgets.QualityControl</RootNamespace>
     <AssemblyName>ThreeSixtyFiveWidgets.QualityControl</AssemblyName>
     <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <Import Project="..\SharedAssemblyInfo.props" />

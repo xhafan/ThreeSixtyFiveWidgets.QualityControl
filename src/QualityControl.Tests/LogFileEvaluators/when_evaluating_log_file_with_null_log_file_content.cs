@@ -1,7 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
 using Shouldly;
-using ThreeSixtyFiveWidgets.QualityControl.Tests.Builders;
 
 namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
 {
@@ -13,7 +12,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
         [SetUp]
         public void Context()
         {
-            _logFileEvaluator = new LogFileEvaluatorBuilder().Build();
+            _logFileEvaluator = new LogFileEvaluator();
         }
 
         [TestCase(null, TestName = "{m}: 1 null")]

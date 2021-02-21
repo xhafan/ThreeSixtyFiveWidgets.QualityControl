@@ -4,7 +4,7 @@ using ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies;
 
 namespace ThreeSixtyFiveWidgets.QualityControl
 {
-    public class Sensor
+    internal class Sensor
     {
         private readonly List<Reading> _readings = new();
 

@@ -1,6 +1,6 @@
 ﻿namespace ThreeSixtyFiveWidgets.QualityControl.LineMeaningDetectors
 {
-    public interface ILineMeaningDetector
+    internal interface ILineMeaningDetector
     {
         LogLineMeaning DetectLineMeaning(string line);
     }

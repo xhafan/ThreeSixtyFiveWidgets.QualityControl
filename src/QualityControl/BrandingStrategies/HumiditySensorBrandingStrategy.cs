@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies
 {
-    public class HumiditySensorBrandingStrategy : IBrandingStrategy
+    internal class HumiditySensorBrandingStrategy : IBrandingStrategy
     {
         public string EvaluateBranding(string referenceValue, IEnumerable<string> logValues)
         {

@@ -1,6 +1,6 @@
 ﻿namespace ThreeSixtyFiveWidgets.QualityControl.ReadingParsers
 {
-    public interface IReadingParser
+    internal interface IReadingParser
     {
         Reading ParseReading(string readingLine);
     }
