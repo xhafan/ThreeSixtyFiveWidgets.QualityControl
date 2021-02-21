@@ -6,7 +6,7 @@ using Widgets365.QualityControl.Tests.Builders;
 namespace Widgets365.QualityControl.Tests.LogFileEvaluators
 {
     [TestFixture]
-    public class when_evaluating_log_file_with_missing_sensor_identifier_line
+    public class when_evaluating_log_file_with_invalid_sensor_identifier_line
     {
         private LogFileEvaluator _logFileEvaluator;
 
