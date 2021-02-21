@@ -2,6 +2,6 @@
 {
     public interface ISensorIdentifierParser
     {
-        (SensorType SensorType, string Name) ParseSensorIdentifier(string sensorIdentifierLine);
+        Sensor ParseSensorIdentifier(string sensorIdentifierLine);
     }
 }

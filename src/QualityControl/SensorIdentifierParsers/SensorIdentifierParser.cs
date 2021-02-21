@@ -4,7 +4,7 @@ namespace Widgets365.QualityControl.SensorIdentifierParsers
 {
     public class SensorIdentifierParser : ISensorIdentifierParser
     {
-        public (SensorType SensorType, string Name) ParseSensorIdentifier(string sensorIdentifierLine)
+        public Sensor ParseSensorIdentifier(string sensorIdentifierLine)
         {
             if (string.IsNullOrWhiteSpace(sensorIdentifierLine))
             {
@@ -22,7 +22,7 @@ namespace Widgets365.QualityControl.SensorIdentifierParsers
                 throw new ArgumentException("Invalid sensor identifier.");
             }
 
-            return (SensorConstants.SensorTypeByLogSensorIdentifier[sensorIdentifier], sensorIdentifierLineSplit[1]);
+            return new(SensorConstants.SensorTypeByLogSensorIdentifier[sensorIdentifier], sensorIdentifierLineSplit[1]);
         }
     }
 }

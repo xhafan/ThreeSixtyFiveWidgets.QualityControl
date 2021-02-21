@@ -1,4 +1,5 @@
-﻿using Widgets365.QualityControl.LineMeaningDetectors;
+﻿using Widgets365.QualityControl.BrandingStrategies;
+using Widgets365.QualityControl.LineMeaningDetectors;
 using Widgets365.QualityControl.LogEntryParsers;
 using Widgets365.QualityControl.ReferenceParsers;
 using Widgets365.QualityControl.SensorIdentifierParsers;
@@ -11,6 +12,7 @@ namespace Widgets365.QualityControl.Tests.Builders
         private ISensorIdentifierParser _sensorIdentifierParser;
         private ILineMeaningDetector _lineMeaningDetector;
         private ILogEntryParser _logEntryParser;
+        private IBrandingStrategyDeterminer _brandingStrategyDeterminer;
 
         public LogFileEvaluatorBuilder WithReferenceParser(IReferenceParser referenceParser)
         {
@@ -36,13 +38,20 @@ namespace Widgets365.QualityControl.Tests.Builders
             return this;
         }
 
+        public LogFileEvaluatorBuilder WithBrandingStrategyDeterminer(IBrandingStrategyDeterminer brandingStrategyDeterminer)
+        {
+            _brandingStrategyDeterminer = brandingStrategyDeterminer;
+            return this;
+        }
+
         public LogFileEvaluator Build()
         {
             return new(
                 _referenceParser ?? new ReferenceParser(),
                 _sensorIdentifierParser ?? new SensorIdentifierParser(),
                 _lineMeaningDetector ?? new LineMeaningDetector(),
-                _logEntryParser ?? new LogEntryParser()
+                _logEntryParser ?? new LogEntryParser(),
+                _brandingStrategyDeterminer ?? new BrandingStrategyDeterminer()
             );
         }
     }

@@ -5,7 +5,6 @@ using Widgets365.QualityControl.Tests.Builders;
 namespace Widgets365.QualityControl.Tests.LogFileEvaluators
 {
     [TestFixture]
-    [Ignore("Test is failing as the code has not been implemented yet")]
     public class when_evaluating_log_file
     {
         private string _output;
@@ -66,12 +65,12 @@ monoxide mon-2
         {
             _output.ShouldBe(
 @"{
-""temp-1"": ""precise"",
-""temp-2"": ""ultra precise"",
-""hum-1"": ""keep"",
-""hum-2"": ""discard"",
-""mon-1"": ""keep"",
-""mon-2"": ""discard""
+  ""temp-1"": ""precise"",
+  ""temp-2"": ""ultra precise"",
+  ""hum-1"": ""keep"",
+  ""hum-2"": ""discard"",
+  ""mon-1"": ""keep"",
+  ""mon-2"": ""discard""
 }"
             );
         }

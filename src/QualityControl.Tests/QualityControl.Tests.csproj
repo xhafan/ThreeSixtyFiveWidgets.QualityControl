@@ -6,6 +6,8 @@
     <AssemblyName>Widgets365.QualityControl.Tests</AssemblyName>
   </PropertyGroup>
 
+  <Import Project="..\SharedAssemblyInfo.props" />
+
   <ItemGroup>
     <PackageReference Include="FakeItEasy" Version="6.2.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
