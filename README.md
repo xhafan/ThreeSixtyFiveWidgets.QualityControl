@@ -25,3 +25,8 @@ monoxide mon-2
 2007-04-05T22:05 4
 ");
 ```
+
+```c#
+SensorEvaluator.EvaluateLogFile(File.OpenRead("logfile.txt"));
+
+```
