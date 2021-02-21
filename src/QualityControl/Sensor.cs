@@ -6,7 +6,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl
 {
     public class Sensor
     {
-        private readonly List<LogEntry> _logEntries = new();
+        private readonly List<Reading> _readings = new();
 
         public Sensor(SensorType sensorType, string name)
         {
@@ -18,14 +18,14 @@ namespace ThreeSixtyFiveWidgets.QualityControl
         public string Name { get; }
         public string? Branding { get; private set; }
 
-        public void AddLogEntry(LogEntry logEntry)
+        public void AddReading(Reading reading)
         {
-            _logEntries.Add(logEntry);
+            _readings.Add(reading);
         }
 
         public void EvaluateBranding(string referenceValue, IBrandingStrategy brandingStrategy)
         {
-            Branding = brandingStrategy.EvaluateBranding(referenceValue, _logEntries.Select(x => x.Value));
+            Branding = brandingStrategy.EvaluateBranding(referenceValue, _readings.Select(x => x.Value));
         }
     }
 }

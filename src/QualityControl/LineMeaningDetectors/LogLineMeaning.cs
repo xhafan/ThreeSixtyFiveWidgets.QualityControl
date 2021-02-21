@@ -2,7 +2,7 @@
 {
     public enum LogLineMeaning
     {
-        SensorIdentifier,
-        LogEntry
+        Sensor,
+        Reading
     }
 }

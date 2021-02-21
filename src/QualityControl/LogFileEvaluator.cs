@@ -5,32 +5,32 @@ using System.Text;
 using Newtonsoft.Json.Linq;
 using ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies;
 using ThreeSixtyFiveWidgets.QualityControl.LineMeaningDetectors;
-using ThreeSixtyFiveWidgets.QualityControl.LogEntryParsers;
+using ThreeSixtyFiveWidgets.QualityControl.ReadingParsers;
 using ThreeSixtyFiveWidgets.QualityControl.ReferenceParsers;
-using ThreeSixtyFiveWidgets.QualityControl.SensorIdentifierParsers;
+using ThreeSixtyFiveWidgets.QualityControl.SensorParsers;
 
 namespace ThreeSixtyFiveWidgets.QualityControl
 {
     public class LogFileEvaluator : ILogFileEvaluator
     {
         private readonly IReferenceParser _referenceParser;
-        private readonly ISensorIdentifierParser _sensorIdentifierParser;
+        private readonly ISensorParser _sensorParser;
         private readonly ILineMeaningDetector _lineMeaningDetector;
-        private readonly ILogEntryParser _logEntryParser;
+        private readonly IReadingParser _readingParser;
         private readonly IBrandingStrategyDeterminer _brandingStrategyDeterminer;
 
         public LogFileEvaluator(
             IReferenceParser referenceParser,
-            ISensorIdentifierParser sensorIdentifierParser,
+            ISensorParser sensorParser,
             ILineMeaningDetector lineMeaningDetector,
-            ILogEntryParser logEntryParser,
+            IReadingParser readingParser,
             IBrandingStrategyDeterminer brandingStrategyDeterminer
             )
         {
             _referenceParser = referenceParser;
-            _sensorIdentifierParser = sensorIdentifierParser;
+            _sensorParser = sensorParser;
             _lineMeaningDetector = lineMeaningDetector;
-            _logEntryParser = logEntryParser;
+            _readingParser = readingParser;
             _brandingStrategyDeterminer = brandingStrategyDeterminer;
         }
 
@@ -53,7 +53,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl
             var referenceLine = reader.ReadLine();
             var referenceValuesBySensorType = _referenceParser.ParseReference(referenceLine);
 
-            var sensors = _ReadLinesAndParseSensorsAndLogEntries(reader);
+            var sensors = _ReadLinesAndParseSensorsAndReadings(reader);
             foreach (var sensor in sensors)
             {
                 var brandingStrategy = _brandingStrategyDeterminer.DetermineBrandingStrategy(sensor.SensorType);
@@ -74,7 +74,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl
             return jObject.ToString();
         }
 
-        private ICollection<Sensor> _ReadLinesAndParseSensorsAndLogEntries(TextReader reader)
+        private ICollection<Sensor> _ReadLinesAndParseSensorsAndReadings(TextReader reader)
         {
             var sensors = new List<Sensor>();
             Sensor? currentSensor = default;
@@ -85,18 +85,18 @@ namespace ThreeSixtyFiveWidgets.QualityControl
                 var lineMeaning = _lineMeaningDetector.DetectLineMeaning(line);
                 switch (lineMeaning)
                 {
-                    case LogLineMeaning.SensorIdentifier:
-                        currentSensor = _sensorIdentifierParser.ParseSensorIdentifier(line);
+                    case LogLineMeaning.Sensor:
+                        currentSensor = _sensorParser.ParseSensor(line);
                         sensors.Add(currentSensor);
                         break;
-                    case LogLineMeaning.LogEntry:
+                    case LogLineMeaning.Reading:
                         if (currentSensor == default)
                         {
-                            throw new ArgumentException("Missing sensor identifier line.");
+                            throw new ArgumentException("Missing sensor line.");
                         }
 
-                        var logEntry = _logEntryParser.ParseLogEntry(line);
-                        currentSensor.AddLogEntry(logEntry);
+                        var reading = _readingParser.ParseReading(line);
+                        currentSensor.AddReading(reading);
                         break;
                     default:
                         throw new ArgumentException("Unknown line meaning.");

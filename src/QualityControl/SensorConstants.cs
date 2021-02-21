@@ -4,7 +4,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl
 {
     public static class SensorConstants
     {
-        public static IDictionary<string, SensorType> SensorTypeByLogSensorIdentifier =
+        public static IDictionary<string, SensorType> SensorTypeBySensorIdentifier =
             new Dictionary<string, SensorType>
             {
                 {"thermometer", SensorType.Thermometer},
@@ -12,6 +12,6 @@ namespace ThreeSixtyFiveWidgets.QualityControl
                 {"monoxide", SensorType.CarbonMonoxideDetector}
             };
 
-        public static IEnumerable<string> SensorIdentifiers = SensorTypeByLogSensorIdentifier.Keys;
+        public static IEnumerable<string> SensorIdentifiers = SensorTypeBySensorIdentifier.Keys;
     }
 }

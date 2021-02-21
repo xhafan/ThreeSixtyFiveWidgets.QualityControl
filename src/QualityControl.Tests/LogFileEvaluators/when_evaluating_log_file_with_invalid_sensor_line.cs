@@ -6,7 +6,7 @@ using ThreeSixtyFiveWidgets.QualityControl.Tests.Builders;
 namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
 {
     [TestFixture]
-    public class when_evaluating_log_file_with_invalid_log_entry
+    public class when_evaluating_log_file_with_invalid_sensor_line
     {
         private LogFileEvaluator _logFileEvaluator;
 
@@ -16,18 +16,18 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.LogFileEvaluators
             _logFileEvaluator = new LogFileEvaluatorBuilder().Build();
         }
 
-        [TestCase("2007-04 72.4", "Invalid log line.", 
-            TestName = "{m}: 1 Invalid date")]
-        [TestCase("2007-04-05T22:00 A", "Invalid value in log entry.",
-            TestName = "{m}: 2 Invalid value")]
-        [TestCase("2007-04-05T22:00 72.4 23", "Too many entries in log entry.",
-            TestName = "{m}: 3 Too many entries")]
-        public void exception_is_thrown(string logEntryLine, string expectedExceptionMessage)
+        [TestCase("noise temp-1", "Invalid log line.",
+            TestName = "{m}: 1 Invalid sensor identifier")]
+        [TestCase("", "Invalid log line.",
+            TestName = "{m}: 2 Empty line")]
+        [TestCase("thermometer temp-1 extra-data", "Sensor line is invalid.",
+            TestName = "{m}: 3 Extra data in sensor line")]
+        public void exception_is_thrown(string sensorLine, string expectedExceptionMessage)
         {
             var exception = Should.Throw<ArgumentException>(() => _logFileEvaluator.EvaluateLogFile(
 $@"reference 70.0 45.0 6
-thermometer temp-1
-{logEntryLine}"
+{sensorLine}
+2007-04-05T22:00 72.4"
                 )
             );
             exception.Message.ShouldBe(expectedExceptionMessage);

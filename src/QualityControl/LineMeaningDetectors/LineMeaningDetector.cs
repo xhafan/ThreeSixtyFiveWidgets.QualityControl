@@ -10,13 +10,13 @@ namespace ThreeSixtyFiveWidgets.QualityControl.LineMeaningDetectors
         {
             if (SensorConstants.SensorIdentifiers.Any(sensorIdentifier => line.StartsWith($"{sensorIdentifier} ")))
             {
-                return LogLineMeaning.SensorIdentifier;
+                return LogLineMeaning.Sensor;
             }
             var lineSplit = line.Split(new[] {" "}, StringSplitOptions.RemoveEmptyEntries);
             if (lineSplit.Length > 0 
                 && DateTime.TryParseExact(lineSplit[0], "yyyy-MM-ddTHH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
             {
-                return LogLineMeaning.LogEntry;
+                return LogLineMeaning.Reading;
             }
             throw new ArgumentException("Invalid log line.");
         }

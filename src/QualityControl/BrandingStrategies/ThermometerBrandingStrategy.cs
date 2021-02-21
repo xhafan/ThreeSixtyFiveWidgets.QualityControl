@@ -18,7 +18,7 @@ namespace ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies
             {
                 if (!double.TryParse(logValue, out var value))
                 {
-                    throw new ArgumentException("Invalid value in log entry.");
+                    throw new ArgumentException("Invalid value in reading.");
                 }
                 return value;
             });

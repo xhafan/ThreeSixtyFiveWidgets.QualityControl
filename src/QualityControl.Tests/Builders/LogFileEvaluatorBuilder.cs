@@ -1,17 +1,17 @@
 ﻿using ThreeSixtyFiveWidgets.QualityControl.BrandingStrategies;
 using ThreeSixtyFiveWidgets.QualityControl.LineMeaningDetectors;
-using ThreeSixtyFiveWidgets.QualityControl.LogEntryParsers;
+using ThreeSixtyFiveWidgets.QualityControl.ReadingParsers;
 using ThreeSixtyFiveWidgets.QualityControl.ReferenceParsers;
-using ThreeSixtyFiveWidgets.QualityControl.SensorIdentifierParsers;
+using ThreeSixtyFiveWidgets.QualityControl.SensorParsers;
 
 namespace ThreeSixtyFiveWidgets.QualityControl.Tests.Builders
 {
     public class LogFileEvaluatorBuilder
     {
         private IReferenceParser _referenceParser;
-        private ISensorIdentifierParser _sensorIdentifierParser;
+        private ISensorParser _sensorParser;
         private ILineMeaningDetector _lineMeaningDetector;
-        private ILogEntryParser _logEntryParser;
+        private IReadingParser _readingParser;
         private IBrandingStrategyDeterminer _brandingStrategyDeterminer;
 
         public LogFileEvaluatorBuilder WithReferenceParser(IReferenceParser referenceParser)
@@ -20,9 +20,9 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.Builders
             return this;
         }
 
-        public LogFileEvaluatorBuilder WithSensorIdentifierParser(ISensorIdentifierParser sensorIdentifierParser)
+        public LogFileEvaluatorBuilder WithSensorParser(ISensorParser sensorParser)
         {
-            _sensorIdentifierParser = sensorIdentifierParser;
+            _sensorParser = sensorParser;
             return this;
         }
 
@@ -32,9 +32,9 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.Builders
             return this;
         }
 
-        public LogFileEvaluatorBuilder WithLogEntryParser(ILogEntryParser logEntryParser)
+        public LogFileEvaluatorBuilder WithReadingParser(IReadingParser readingParser)
         {
-            _logEntryParser = logEntryParser;
+            _readingParser = readingParser;
             return this;
         }
 
@@ -48,9 +48,9 @@ namespace ThreeSixtyFiveWidgets.QualityControl.Tests.Builders
         {
             return new(
                 _referenceParser ?? new ReferenceParser(),
-                _sensorIdentifierParser ?? new SensorIdentifierParser(),
+                _sensorParser ?? new SensorParser(),
                 _lineMeaningDetector ?? new LineMeaningDetector(),
-                _logEntryParser ?? new LogEntryParser(),
+                _readingParser ?? new ReadingParser(),
                 _brandingStrategyDeterminer ?? new BrandingStrategyDeterminer()
             );
         }
