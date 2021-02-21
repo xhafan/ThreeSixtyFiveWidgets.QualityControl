@@ -12,8 +12,8 @@ namespace ThreeSixtyFiveWidgets.QualityControl.ReadingParsers
             {
                 throw new ArgumentException("Too many entries in reading.");
             }
-            var loggedOn = DateTime.ParseExact(readingLineSplit[0], "yyyy-MM-ddTHH:mm", CultureInfo.InvariantCulture);
-            return new Reading(loggedOn, readingLineSplit[1]);
+            var dateTime = DateTime.ParseExact(readingLineSplit[0], "yyyy-MM-ddTHH:mm", CultureInfo.InvariantCulture);
+            return new Reading(dateTime, readingLineSplit[1]);
         }
     }
 }

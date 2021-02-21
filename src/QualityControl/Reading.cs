@@ -2,5 +2,5 @@
 
 namespace ThreeSixtyFiveWidgets.QualityControl
 {
-    public record Reading(DateTime LoggedOn, string Value);
+    public record Reading(DateTime DateTime, string Value);
 }
